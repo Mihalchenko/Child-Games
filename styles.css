@@ -1,0 +1,323 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+body {
+    background-image: url(images/main-bg.jpeg);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+}
+a:active, a:hover, a:visited, a {
+    text-decoration: none;
+}
+.content {
+    position: relative;
+}
+/* Кнопка "на главную" слева вверху экрана */
+.home-button {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    width: 60px;
+    height: 60px;
+    border: 3px darkorange double;
+    padding: 5px;
+    border-radius: 50%;
+    text-align: center;
+    z-index: 40;
+}
+.home-button a {
+    font-size: 40px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    color: orange;
+}
+.home-button:hover {
+    transform: scale(1.15);
+    background-color: white;
+}
+.home-button:active {
+    transform: scale(0.9);
+}
+/* единый footer для страниц */
+.footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-style: italic;
+    margin-top: 20px;
+}
+/* стили для очков */
+.seasons-page-score, .memory-page-score, .clock-page-score, .clock-page-round {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: darkblue;
+}
+/* стили для главной страницы */
+.main-page, .default-page {
+    text-align: center;
+    margin-top: 10%;
+}
+.main-page h1, .default-page h1 {
+    font-size: 42px;
+}
+/* стили для меню на главной странице */
+.mainmenu {
+    position: relative;
+}
+.mainmenu__list li {
+    margin-top: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.mainmenu__link {
+    display: inline-block;
+    padding: 10px;
+    border: 3px darkorange dashed;
+    color: black;
+    border-radius: 10px;
+}
+.mainmenu__link:hover {
+    animation-duration: 1.5s;
+    animation-name: mainMenuBG;
+    animation-fill-mode: forwards;
+    transform: scale(1.05);
+}
+.mainmenu__link:active {
+    transform: scale(0.96);
+}
+@keyframes mainMenuBG {
+    from {
+      background-color: none;
+    }
+  
+    to {
+      background-color: orange;
+    }
+}
+/* стили для страницы с ошибкой */
+.error-page {
+    margin-top: 15%;
+    text-align: center;
+    font-size: 1.5em;
+}
+/* стили для приветственного окна */
+.gameinfo-page {
+    text-align: center;
+    border: 2px orange dashed;
+    border-radius: 10px;
+    width: 50%;
+    margin: 5% auto;
+    background-color: rgba(252, 205, 117, 0.7);
+}
+.gameinfo-page header {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+}
+.gameinfo-page div {
+    margin: 10px;
+}
+.gameinfo-page ul {
+    margin-bottom: 10px;
+}
+.gameinfo-page li a {
+    padding: 5px;
+    font-size: 24px;
+    text-transform: uppercase;
+    border: 1px darkorange solid;
+    background-color: rgba(255, 165, 0, 0.5);
+    border-radius: 5px;
+    display: inline-block;
+    color: black;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.gameinfo-page li a:hover {
+    background-color: rgba(255, 165, 0, 0.8);
+    transform: scale(1.05);
+}
+.gameinfo-page li a:active {
+    transform: scale(0.96);
+}
+/* стили для memory game */
+.memory-page {
+    width: auto;
+}
+.memory-game {
+    width: 60vh;
+    height: 80vh;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+.memory-card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+.memory-card-active {
+    transform: scale(0.96);
+}
+.memory-card:active {
+    transition: transform .25s;
+}
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: #1C7CCC;
+    backface-visibility: hidden;
+}
+.front-face {
+    transform: rotateY(180deg);
+}
+.memory-card-flip {
+    transform: rotateY(180deg);
+}
+/* стили для seasons game */
+.seasons-game {
+    width: 60vh;
+    height: 80vh;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+.seasons-field {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr 1fr 1fr;
+    height: 100px;
+    justify-content: space-around;
+}
+.seasons-field-info {
+    text-align: center;
+    line-height: 95px;
+    background-color: orange;
+    font-size: 18px;
+    border: 1px rgba(0, 0, 0, 0.5) solid;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    order: 0;
+}
+.seasons-pic {
+    height: 100px;
+    width: 100px;
+    border: 1px rgba(0, 0, 0, 0.5) solid;
+    border-left: none;
+    padding: 5px;
+    object-fit: contain;
+    display: block;
+}
+.fail-animation {
+    animation: shake 0.3s;
+    animation-iteration-count: infinite;
+    background-color: red;
+}
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+/* стили для всплывающего окна по окончании игры */
+.game-finished {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    background-color: lightgreen;
+    z-index: 51;
+    border-radius: 10px;
+    border: 2px green solid;
+}
+.game-finished p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.6);
+}
+.game-finished a {
+    padding: 5px;
+    font-size: 24px;
+    text-transform: uppercase;
+    border: 2px green solid;
+    background-color: mediumseagreen;
+    border-radius: 5px;
+    display: inline-block;
+    color: black;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.game-finished a:hover {
+    transform: scale(1.05);
+}
+.game-finished a:active {
+    transform: scale(0.96);
+}
+/* стили для часов */
+.clock-page {
+    text-align: center;
+}
+.clock-page-inputs input {
+    border: 0;
+    border-bottom: 1px solid black;
+    text-transform: uppercase;
+    padding: 10px;
+    display: inline-block;
+    width: 250px;
+    margin: auto;
+    font-size: 12px;
+    text-align: center;
+}
+.clock-page-submit {
+    width: 100px;
+    height: 50px;
+    text-transform: uppercase;
+    margin: 15px auto;
+    background-color: rgba(255, 165, 0, 0.9);
+    border: 0;
+    margin-bottom: 10px;
+    display: block;
+    border-radius: 5px;
+}
+.clock-page-submit:hover {
+    cursor: pointer;
+    background-color: rgba(255, 165, 0, 0.75);
+}
+.clock-page-submit:active {
+    box-shadow: 0px 0px 15px 10px rgba(34, 60, 80, 0.2) inset;
+}
