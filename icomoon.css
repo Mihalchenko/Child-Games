@@ -19,3 +19,18 @@
 .icon-home:before {
   content: "\e900";
 }
+.icon-cross:before {
+  content: "\ea0f";
+  color: red;
+}
+.icon-checkmark:before {
+  content: "\ea10";
+  color: green;
+}
+.icon-cross, .icon-checkmark {
+  animation: showresult 0.5s;
+}
+@keyframes showresult {
+  0% {transform: scale(0.1);}
+  100% {transform: scale(1);}
+}

@@ -16,6 +16,8 @@ a:active, a:hover, a:visited, a {
 }
 .content {
     position: relative;
+    width: 80%;
+    margin: 5px auto;
 }
 /* Кнопка "на главную" слева вверху экрана */
 .home-button {
@@ -49,6 +51,7 @@ a:active, a:hover, a:visited, a {
 /* единый footer для страниц */
 .footer {
     position: fixed;
+    height: 20px;
     width: 100%;
     left: 0;
     bottom: 0;
@@ -67,7 +70,8 @@ a:active, a:hover, a:visited, a {
 /* стили для главной страницы */
 .main-page, .default-page {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 100px;
+    animation: appear 2s;
 }
 .main-page h1, .default-page h1 {
     font-size: 42px;
@@ -117,9 +121,10 @@ a:active, a:hover, a:visited, a {
     text-align: center;
     border: 2px orange dashed;
     border-radius: 10px;
-    width: 50%;
+    width: 60%;
     margin: 5% auto;
     background-color: rgba(252, 205, 117, 0.7);
+    animation: appear 2s;
 }
 .gameinfo-page header {
     font-size: 24px;
@@ -154,6 +159,7 @@ a:active, a:hover, a:visited, a {
 /* стили для memory game */
 .memory-page {
     width: auto;
+    animation: appear 2s;
 }
 .memory-game {
     width: 60vh;
@@ -193,8 +199,11 @@ a:active, a:hover, a:visited, a {
     transform: rotateY(180deg);
 }
 /* стили для seasons game */
+.seasons-page {
+    animation: appear 2s;
+}
 .seasons-game {
-    width: 60vh;
+    width: 480px;
     height: 80vh;
     margin: 20px auto;
     display: flex;
@@ -256,6 +265,12 @@ a:active, a:hover, a:visited, a {
     z-index: 51;
     border-radius: 10px;
     border: 2px green solid;
+    font-weight: normal;
+    animation: appear 2.5s;
+}
+@keyframes appear {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
 .game-finished p {
     margin-top: 20px;
@@ -269,6 +284,7 @@ a:active, a:hover, a:visited, a {
     height: 100%;
     z-index: 50;
     background: rgba(0, 0, 0, 0.6);
+    animation: appear 2.5s;
 }
 .game-finished a {
     padding: 5px;
@@ -291,10 +307,11 @@ a:active, a:hover, a:visited, a {
 /* стили для часов */
 .clock-page {
     text-align: center;
+    animation: appear 2s;
 }
 .clock-page-inputs input {
     border: 0;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid darkgreen;
     text-transform: uppercase;
     padding: 10px;
     display: inline-block;
@@ -302,6 +319,13 @@ a:active, a:hover, a:visited, a {
     margin: auto;
     font-size: 12px;
     text-align: center;
+    background-color: rgba(144, 238, 144, 0.8);
+    color: darkgreen;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.clock-page-inputs input:focus {
+    outline-color: darkgreen;
 }
 .clock-page-submit {
     width: 100px;
@@ -320,4 +344,66 @@ a:active, a:hover, a:visited, a {
 }
 .clock-page-submit:active {
     box-shadow: 0px 0px 15px 10px rgba(34, 60, 80, 0.2) inset;
+}
+.clock-game-result {
+    font-size: 40px;
+    height: 40px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+}
+@media (max-width: 600px) {
+    .seasons-pic {
+        width: 80px;
+        height: 80px;
+    }
+    .seasons-field {
+        height: 80px;
+    }
+    .seasons-field-info {
+        line-height: 75px;
+    }
+    .seasons-game {
+        width: 400px;
+    }
+}
+@media (max-width: 480px) {
+    .gameinfo-page {
+        width: 260px;
+        margin: 30% auto;
+    }
+    .seasons-game {
+        width: 275px;
+        margin: 40px auto;
+    }
+    .seasons-pic {
+        width: 55px;
+        height: 55px;
+    }
+    .seasons-field {
+        height: 55px;
+        grid-template-columns: 55px 1fr 1fr 1fr 1fr;
+    }
+    .seasons-field-info {
+        line-height: 50px;
+        font-size: 12px;
+    }
+    .seasons-page, .memory-page, .clock-page {
+        padding-top: 80px;
+    }
+    .memory-game {
+        width: 280px;
+        height: 55vh;
+    }
+}
+@media (max-width: 320px) {
+    body, .footer {
+        width: 320px;
+    }
+    .gameinfo-page {
+        width: 240px;
+        margin: 30% auto;
+    }
+    .seasons-page-score, .memory-page-score, .clock-page-score, .clock-page-round {
+        width: 280px;
+    }
 }
