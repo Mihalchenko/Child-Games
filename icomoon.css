@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.woff?af60dd') format('woff');
+  src:  url('fonts/icomoon.woff?ir3yye') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -33,4 +33,41 @@
 @keyframes showresult {
   0% {transform: scale(0.1);}
   100% {transform: scale(1);}
+}
+/* bages */
+.icon-smile:before {
+  content: "\e9e1";
+}
+.icon-tongue:before {
+  content: "\e9e3";
+}
+.icon-wink:before {
+  content: "\e9e7";
+}
+.icon-grin:before {
+  content: "\e9e9";
+}
+.icon-cool:before {
+  content: "\e9eb";
+}
+.icon-evil:before {
+  content: "\e9ef";
+}
+.icon-shocked:before {
+  content: "\e9f1";
+}
+.icon-baffled:before {
+  content: "\e9f3";
+}
+.icon-hipster:before {
+  content: "\e9f9";
+}
+.icon-sleepy:before {
+  content: "\e9fd";
+}
+.icon-volume-high:before {
+  content: "\ea26";
+}
+.icon-volume-mute2:before {
+  content: "\ea2a";
 }
